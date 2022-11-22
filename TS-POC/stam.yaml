@@ -2,7 +2,7 @@
 apiVersion: kubevirt.io/v1alpha3
 kind: VirtualMachine
 metadata:
-  name: testvm
+  name: testvm2
 spec:
   running: false
   template:

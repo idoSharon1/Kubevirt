@@ -1,38 +1,23 @@
-
 apiVersion: kubevirt.io/v1alpha3
 kind: VirtualMachine
 metadata:
-  name: testvm7
+  name: win2k12-iso
 spec:
-  running: true
+  running: false
   template:
     metadata:
-      labels: 
-        kubevirt.io/size: small
-        kubevirt.io/domain: testvm
+      labels:
+        kubevirt.io/domain: win2k12-iso
     spec:
       domain:
+        cpu:
+          cores: 4
         devices:
-          disks:
-          - disk:
-              bus: virtio
-            name: rootfs
-          - disk:
-              bus: virtio
-            name: cloudinit
-          interfaces:
-          - name: default
-            masquerade: {}
+    ...
+        machine:
+          type: q35
         resources:
           requests:
-            memory: 64M
-      networks:
-      - name: default
-        pod: {}
+            memory: 8G
       volumes:
-        - name: rootfs
-          containerDisk:
-            image: kubevirt/cirros-registry-disk-demo
-        - name: cloudinit
-          cloudInitNoCloud:
-            userDataBase64: SGkuXG4= 
+    ...

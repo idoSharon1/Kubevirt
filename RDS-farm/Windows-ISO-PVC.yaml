@@ -9,7 +9,7 @@ metadata:
     cdi.kubevirt.io/storage.import.endpoint: "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x409&culture=en-us&country=US" # Required. Format: (http||s3)://www.myUrl.com/path/of/data
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi

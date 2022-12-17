@@ -1,0 +1,53 @@
+```
+apiVersion: kubevirt.io/v1alpha3
+kind: VirtualMachine
+metadata:
+  generation: 1
+  labels:
+    kubevirt.io/os: windows
+  name: ido-DC
+spec:
+  running: true
+  template:
+    metadata:
+      labels:
+        kubevirt.io/domain: ido-DC
+    spec:
+      domain:
+        cpu:
+          cores: 2
+        devices:
+          disks:
+          - cdrom:
+              bus: sata
+            bootOrder: 2
+            name: iso
+          - disk:
+              bus: virtio
+            name: harddrive
+            bootOrder: 1
+          - cdrom:
+              bus: sata
+              readonly: true
+            name: virtio-drivers
+          interfaces:
+            - name: default
+              masquerade: {}
+        machine:
+          type: q35
+        resources:
+          requests:
+            memory: 4096M
+      networks:
+      - name: default
+        pod: {}
+      volumes:
+      - name: harddrive
+        persistentVolumeClaim:
+          claimName: DC-hdd
+      - name: iso
+        persistentVolumeClaim:
+          claimName: windows-server-2019-iso-pvc
+      - name:  virtio-drivers
+        containerDisk:
+          image: kubevirt/virtio-container-disk

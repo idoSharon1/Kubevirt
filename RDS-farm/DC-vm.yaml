@@ -20,12 +20,12 @@ spec:
           disks:
           - cdrom:
               bus: sata
-            bootOrder: 2
+            bootOrder: 1
             name: iso
           - disk:
               bus: virtio
             name: harddrive
-            bootOrder: 1
+            bootOrder: 2
           - cdrom:
               bus: sata
               readonly: true

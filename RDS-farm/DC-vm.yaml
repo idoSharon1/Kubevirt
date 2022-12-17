@@ -44,7 +44,7 @@ spec:
       volumes:
       - name: harddrive
         persistentVolumeClaim:
-          claimName: DC-hdd
+          claimName: dc-hdd
       - name: iso
         persistentVolumeClaim:
           claimName: windows-server-2019-iso-pvc

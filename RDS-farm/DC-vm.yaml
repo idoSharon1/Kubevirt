@@ -5,13 +5,13 @@ metadata:
   generation: 1
   labels:
     kubevirt.io/os: windows
-  name: ido-DC
+  name: ido-dc
 spec:
   running: true
   template:
     metadata:
       labels:
-        kubevirt.io/domain: ido-DC
+        kubevirt.io/domain: ido-dc
     spec:
       domain:
         cpu:

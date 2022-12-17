@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: DC-hdd
+  name: dc-hdd
 spec:
   storageClassName: managed-premium
   accessModes:

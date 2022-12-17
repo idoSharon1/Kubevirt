@@ -1,0 +1,17 @@
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: windows-server-2019-iso-pvc
+  labels:
+    app: containerized-data-importer
+  annotations:
+    cdi.kubevirt.io/storage.import.endpoint: "https://go.microsoft.com/fwlink/p/?LinkID=2195167&clcid=0x409&culture=en-us&country=US" # Required. Format: (http||s3)://www.myUrl.com/path/of/data
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  # Optional: Set the storage class or omit to accept the default
+  # storageClassName: local
